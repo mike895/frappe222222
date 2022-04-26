@@ -63,15 +63,6 @@
 </div>
 {% endmacro %}
 
-{% macro logoin_section() %}
-<div class="page-card-head">
-        <img class="app-logo" src="{{ logo }}">
-        <h4>{{ _('Login to {0}').format( _("EAF")) }}</h4>
-</div>
-{% endmacro %}
-
-
-
 {% block page_content %}
 <!-- {{ for_test }} -->
 <div>
@@ -84,11 +75,10 @@
 	</noscript>
 	<section class='for-login'>
 		<div class="login-content page-card">
-                       
-                        <div class="page-card-head">
-                             <img class="app-logo" src="{{ logo }}">
-                             <h4>{{ _('Login to {0}').format( _("EAF")) }}</h4>
-                        </div>
+			{{ logo_section() }}
+                    <div class="page-card-head">
+                                <h4>{{ _('Forgot Password') }}</h4>
+
 			<form class="form-signin form-login" role="form">
 				{%- if social_login -%}
 				<div class="page-card-body">
@@ -127,10 +117,11 @@
 	{%- if social_login -%}
 	<section class='for-email-login'>
 		<div class="login-content page-card">
-			{{ logoin_section() }}
+			{{ logo_section() }}
 			<form class="form-signin form-login" role="form">
 			{{ email_login_body() }}
 			</form>
+
 		</div>
 		{%- if not disable_signup -%}
 		<div class="text-center sign-up-message">
